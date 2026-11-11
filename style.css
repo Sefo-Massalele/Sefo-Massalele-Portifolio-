@@ -1,0 +1,285 @@
+/* ======================================================
+   Sefo Massalele — Portfólio
+   Ficheiro CSS externo, organizado por secções temáticas
+   Paleta: castanho escuro / creme / laranja
+   ====================================================== */
+
+/* ---------- 1. Variáveis globais ---------- */
+
+:root {
+  --brown-dark: #3E2620;
+  --brown-text: #4A2C1D;
+  --cream-bg: #FAF6EF;
+  --cream-card: #F5EFE4;
+  --orange: #EF9B57;
+  --orange-dark: #E8853A;
+  --gray-text: #6B6560;
+  --green-valid: #4C7A5D;
+  --gray-border: #D8D2C7;
+  --white: #FFFFFF;
+}
+
+/* ---------- 2. Reset básico ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: var(--cream-bg);
+  color: var(--brown-text);
+}
+
+/* ---------- 3. Cabeçalho / Navegação ---------- */
+
+header.site-header {
+  background-color: var(--brown-dark);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+header.site-header .logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+}
+
+header.site-header nav a {
+  color: var(--white);
+  text-decoration: none;
+  margin-left: 28px;
+  font-size: 1rem;
+}
+
+header.site-header nav a:hover,
+header.site-header nav a:focus-visible {
+  text-decoration: underline;
+}
+
+/* ---------- 4. Secção Hero (página inicial) ---------- */
+
+.hero {
+  text-align: center;
+  padding: 60px 20px 40px;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  color: var(--brown-text);
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: var(--gray-text);
+  margin-top: 0;
+}
+
+/* ---------- 5. Grelha de Projetos (página inicial) ---------- */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 30px auto 60px;
+  padding: 0 40px;
+}
+
+.project-card {
+  background-color: var(--orange);
+  border-radius: 8px;
+  min-height: 120px;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  background-color: var(--orange-dark);
+}
+
+.project-card span {
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* ---------- 6. Página de Contacto (formulário) ---------- */
+
+.contact-wrapper {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cream-card);
+  padding: 60px 20px;
+}
+
+.contact-card {
+  background-color: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.contact-card h1 {
+  margin-top: 0;
+  margin-bottom: 28px;
+  font-size: 1.8rem;
+  color: var(--brown-text);
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--brown-text);
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--gray-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--brown-text);
+  background-color: var(--white);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Validação visual: campo válido fica verde, inválido fica vermelho,
+   mas só depois de o utilizador interagir (evita mostrar erro em campo vazio) */
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--green-valid);
+  box-shadow: 0 0 0 3px rgba(76, 122, 93, 0.15);
+}
+
+.form-field input:not(:placeholder-shown):valid,
+.form-field textarea:not(:placeholder-shown):valid {
+  border-color: var(--green-valid);
+}
+
+.form-field input:not(:placeholder-shown):invalid,
+.form-field textarea:not(:placeholder-shown):invalid {
+  border-color: #C25B4A;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--orange);
+  color: var(--white);
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover,
+.btn-submit:focus-visible {
+  background-color: var(--orange-dark);
+}
+
+.btn-submit:focus-visible {
+  outline: 3px solid var(--brown-dark);
+  outline-offset: 2px;
+}
+
+/* ---------- 7. Página de Galeria (CSS Grid + legendas sobrepostas) ---------- */
+
+.gallery-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 40px 70px;
+}
+
+.gallery-wrapper h1 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 220px;
+  display: block;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Cada imagem usa uma cor de fundo diferente para representar a paisagem */
+.gallery-item--montanha { background-color: #3B1F16; background-image: url("https://th.bing.com/th/id/R.873ee8b4543dd1c0f08c6e6c6be28b17?rik=BAqNnfQWXzvtXg&pid=ImgRaw&r=0"); }
+.gallery-item--praia    { background-color: #F5A459; background-image: url("https://th.bing.com/th/id/OIP.oQqxNd2XVEArUjUhSfDVOAHaEK?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"); }
+.gallery-item--floresta { background-color: #7C8C4E; background-image: url("https://th.bing.com/th/id/OIP.dV4DWMPXo22p9Uf6HH9sMAHaEK?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"); }
+.gallery-item--lago     { background-color: #5B8DBF; background-image: url("https://tse4.mm.bing.net/th/id/OIP.tIw8FrP8lwntNIgnnEh8qQHaFj?r=0&w=736&h=552&rs=1&pid=ImgDetMain&o=7&rm=3"); }
+/* Legenda sobreposta com position: absolute, fixa na base da imagem */
+.gallery-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 14px;
+  color: var(--white);
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+/* Cor de fundo da legenda ajustada ao tom de cada imagem, para contraste */
+.gallery-item--montanha .gallery-caption { background-color: #1E0F0A; }
+.gallery-item--praia    .gallery-caption { background-color: #7A4A22; }
+.gallery-item--floresta .gallery-caption { background-color: #3A4222; }
+.gallery-item--lago     .gallery-caption { background-color: #1E3A5A; }
+
+.gallery-item:focus-visible {
+  outline: 3px solid var(--brown-dark);
+  outline-offset: 3px;
+}
+
+/* ---------- 8. Responsividade ---------- */
+
+@media (max-width: 700px) {
+  .projects-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  header.site-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  header.site-header nav a {
+    margin: 0 10px;
+  }
+}
